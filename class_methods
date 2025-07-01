@@ -1,81 +1,233 @@
 
 
-class Players:
-    team = "pakistan"
+# class Players:
+#     team = "pakistan"
 
-    def __init__(self,name):
-        self.name = name
+#     def __init__(self,name):
+#         self.name = name
 
-    @classmethod
-    def change_team (cls, nem_team):
-        cls.team = nem_team
+#     @classmethod
+#     def change_team (cls, nem_team):
+#         cls.team = nem_team
 
-player1 = Players("Kaleem")
-player2 = Players("Numan")
+# player1 = Players("Kaleem")
+# player2 = Players("Numan")
 
-print(player1.team)
-print(player2.team)
+# print(player1.team)
+# print(player2.team)
 
-Players.change_team("India")
+# Players.change_team("India")
 
-print(player1.team)
-print(player2.team)
+# print(player1.team)
+# print(player2.team)
 
 
-# form_string method
+# # form_string method
 
-class Cricketer:
-    def __init__(self,name,role):
-        self.name = name
-        self.role = role
-    def show_intro(self):
-        print(f"I am {self.name} and I am a right-arm {self.role}")
+# class Cricketer:
+#     def __init__(self,name,role):
+#         self.name = name
+#         self.role = role
+#     def show_intro(self):
+#         print(f"I am {self.name} and I am a right-arm {self.role}")
 
-    @classmethod
-    def from_string (cls,new_info):
-        name,role = new_info.split("-")
-        return cls(name,role)
+#     @classmethod
+#     def from_string (cls,new_info):
+#         name,role = new_info.split("-")
+#         return cls(name,role)
     
 
 
-person1 = Cricketer("Tayyab", "Fast bwler")
+# person1 = Cricketer("Tayyab", "Fast bwler")
 
-person1.show_intro()
+# person1.show_intro()
 
-person2 = Cricketer.from_string("Abrar-Batsman")
+# person2 = Cricketer.from_string("Abrar-Batsman")
 
-person2.show_intro()
+# person2.show_intro()
             
 
-# regular method with full control
+# # regular method with full control
 
 
-class Cricketer:
-    def __init__(self,name,role):
+# class Cricketer:
+#     def __init__(self,name,role):
+#         self.name = name
+#         self.role = role
+#     def show_intro(self):
+#         print(f"I am {self.name} and I am a right-arm {self.role}")
+
+#     @classmethod
+#     def from_string (cls,name, role):
+#         return cls(name,role)
+    
+
+
+# person1 = Cricketer("Tayyab", "Fast bwler")
+
+# person1.show_intro()
+
+# person2 = Cricketer.from_string("Abrar","Batsman")
+
+# person2.show_intro()
+
+
+# class Calculator:
+#     @staticmethod
+#     def add (a,b):
+#         return a+b
+#     @staticmethod
+#     def sub (a,b):
+#         return a-b
+#     @staticmethod
+#     def mul (a,b):
+#         return a*b
+#     @staticmethod
+#     def div (a,b):
+#         if b == 0:
+#             return ("invalid input")
+#         else:
+#             return a/b
+
+# # taking input
+
+# num1=float(input("Enter the first number: "))
+# num2=float(input("Enter the second number: "))
+
+# print("Choose operation: add, sub, mul, div")
+# operation = input("Enter operation: ").strip().lower()
+# if operation == "add":
+#     print(Calculator.add(num1,num2))
+# elif operation == "sub":
+#     print(Calculator.sub(num1,num2))
+# elif operation == "mul":
+#     print(Calculator.mul(num1,num2))
+# elif operation == "div":
+#     print(Calculator.div(6,0))    
+# else:
+#     print("Wrong input")
+    
+
+
+
+
+# class Add:
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
+
+#     def add(self):
+#         return self.a + self.b
+
+
+# num1 = int(input("Enter first number: "))
+# num2 = int(input("Enter second number: "))
+
+# obj = Add(num1, num2)
+# sum = obj.add()
+# print("The sum is:", sum)
+
+
+
+
+
+
+
+# # class Adder:
+# #     @classmethod
+# #     def add (a,b):
+# #         return a + b 
+# # num1 = int(input("Enter first number: "))
+# # num2 = int(input("Enter second number: "))
+
+# # print(Adder.add(num1,num2))
+
+
+
+
+# class Employee:
+#     def __init__(self, name, department, salary):
+#         self.name = name
+#         self.department = department
+#         self.salary = salary
+
+#     def show_info(self):
+#         print(f"{self.name} is work as a {self.department} with {self.salary} salary")
+
+    
+#     @classmethod
+#     def from_string(cls, data_str):
+#         name, department, salary =[x.strip() for x in data_str.split(",")]
+#         return cls(name, department, int(salary))
+
+#     @property
+#     def email(self):
+#         clean_name = self.name.replace(" "," ").lower()
+#         return f"{clean_name}@company.com"
+    
+
+
+#     @staticmethod
+#     def high_salary(amount):
+#         return amount > 50000
+    
+# empl_1 = Employee("Tayyab","Developer",70000)
+# empl_1.show_info()
+
+
+# empl_2 = Employee.from_string ("Kaleem Ullah, Q/A, 30000")
+# empl_2.show_info()
+
+# print(Employee.high_salary(70000))
+# print(Employee.high_salary(30000))
+
+# empl_1.name = "tayyab"
+# print(empl_1.email)
+# empl_2.name = "kaleem"
+# print(empl_2.email)
+
+
+class Employee:
+    # Class variable to track total employees
+    total_employees = 0
+
+    def __init__(self, name, department, salary):
         self.name = name
-        self.role = role
-    def show_intro(self):
-        print(f"I am {self.name} and I am a right-arm {self.role}")
+        self.department = department
+        self.salary = salary
+        Employee.total_employees += 1
 
+    # Instance method
+    def show_info(self):
+        print(f"{self.name} is working as a {self.department} with salary {self.salary}")
+
+    # Property to get email
+    @property
+    def email(self):
+        return f"{self.name.replace(' ', '').lower()}@company.com"
+
+    # Setter to change name using email
+    @email.setter
+    def email(self, new_email):
+        username = new_email.split("@")[0]
+        self.name = username
+
+    # Class method
     @classmethod
-    def from_string (cls,name, role):
-        return cls(name,role)
+    def from_string(cls, data_str):
+        name, department, salary = [part.strip() for part in data_str.split(",")]
+        return cls(name, department, int(salary))
+
+    # Static method
+    @staticmethod
+    def high_salary(amount):
+        return amount > 50000 
     
 
 
-person1 = Cricketer("Tayyab", "Fast bwler")
+emp1 = Employee("Muhammad Tayyab","Developer",70000)
+emp1.show_info()
+print("Email: ",emp1.email)
+print("High salary: ",Employee.high_salary(emp1.salary))   
+print("\n\n")
 
-person1.show_intro()
-
-person2 = Cricketer.from_string("Abrar","Batsman")
-
-person2.show_intro()
-
-
-
-
-
-
-
-
-    
